@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../locator.dart';
-import '../../screens/main/cart/cart.ui.dart';
 import '../../screens/main/home/detail-view/product.detail.ui.dart';
 import '../services/local/cache.service.dart';
 import 'routes.dart';
@@ -12,8 +11,6 @@ class Routers {
     switch (settings.name) {
       case ProductDetailRoute:
         return MaterialPageRoute(builder: (_) => const ProductDetailView());
-      case CartViewRoute:
-        return MaterialPageRoute(builder: (_) => const CartView());
 
       default:
         return MaterialPageRoute(

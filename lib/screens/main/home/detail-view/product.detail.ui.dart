@@ -2,6 +2,7 @@ import 'package:andima_shop/localization/locales.dart';
 import 'package:andima_shop/utils/string-extensions.dart';
 import 'package:andima_shop/utils/the.data.dart';
 import 'package:andima_shop/utils/widget_extensions.dart';
+import 'package:andima_shop/widget/app-button.dart';
 import 'package:andima_shop/widget/app-card.dart';
 import 'package:andima_shop/widget/apptexts.dart';
 import 'package:andima_shop/widget/inidicator.dart';
@@ -74,7 +75,7 @@ class ProductDetailView extends StatelessWidget {
                       16.sp.sbH,
                       AppText(
                         model.product.description??"",
-                        style: themeData.textTheme.bodySmall?.copyWith(fontSize: 15.sp),
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: 15.sp),
                       ),
                       16.sp.sbH,
                       Row(
@@ -123,26 +124,13 @@ class ProductDetailView extends StatelessWidget {
                       ),
                     ],
                   )
-                )
-                
+                ),
               ],
             ),
             SizedBox(
               height: 120.sp,
               child: AppBars(
                 systemOverlayStyle: theme.isDark? SystemUiOverlayStyle.dark: null,
-                actions: [
-                  Padding(
-                    padding: 16.sp.padR,
-                    child: Row(
-                      children: [
-                        CartButtons(
-                          onTap: (){},
-                        )
-                      ],
-                    ),
-                  )
-                ],
               ),
             )
           ],

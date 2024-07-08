@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class GetProductResponse {
   num? page;
   num? size;
@@ -45,6 +47,13 @@ class GetProductResponse {
     return data;
   }
 }
+
+List<Items> getGetItemsDataListFromJson(String str) =>
+    List<Items>.from(
+        json.decode(str).map((x) => Items.fromJson(x)));
+
+String getItemsDataListToJson(List<Items> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Items {
   String? name;
@@ -209,8 +218,6 @@ class Categories {
   dynamic urlSlug;
   bool? isDeleted;
   String? dateCreated;
-  List<Null>? subcategories;
-  List<Null>? parents;
 
   Categories(
       {this.organizationId,
@@ -223,9 +230,7 @@ class Categories {
         this.parentId,
         this.urlSlug,
         this.isDeleted,
-        this.dateCreated,
-        this.subcategories,
-        this.parents});
+        this.dateCreated});
 
   Categories.fromJson(Map<String, dynamic> json) {
     organizationId = json['organization_id'];
@@ -239,18 +244,6 @@ class Categories {
     urlSlug = json['url_slug'];
     isDeleted = json['is_deleted'];
     dateCreated = json['date_created'];
-    if (json['subcategories'] != null) {
-      subcategories = <Null>[];
-      json['subcategories'].forEach((v) {
-        // subcategories!.add(new Null.fromJson(v));
-      });
-    }
-    if (json['parents'] != null) {
-      parents = <Null>[];
-      json['parents'].forEach((v) {
-        // parents!.add(new Null.fromJson(v));
-      });
-    }
   }
 
   Map<String, dynamic> toJson() {
@@ -266,13 +259,6 @@ class Categories {
     data['url_slug'] = this.urlSlug;
     data['is_deleted'] = this.isDeleted;
     data['date_created'] = this.dateCreated;
-    if (this.subcategories != null) {
-      // data['subcategories'] =
-          // this.subcategories!.map((v) => v.toJson()).toList();
-    }
-    if (this.parents != null) {
-      // data['parents'] = this.parents!.map((v) => v.toJson()).toList();
-    }
     return data;
   }
 }
@@ -331,7 +317,7 @@ class Photos {
 }
 
 class CurrentPrice {
-  List<num>? nGN;
+  List<num?>? nGN;
 
   CurrentPrice({this.nGN});
 

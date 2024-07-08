@@ -63,10 +63,10 @@ class AppButton extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(borderRadius??12.sp),
-            border: Border.all(width: borderWidth ?? 1.sp, color: borderColor ?? buttonBorderColor),
+            border: Border.all(width: borderWidth ?? 0.sp, color: borderColor ?? buttonBorderColor),
             color: transparent == true? null: backGroundColor != null?
             (onTap == null || isLoading==true? backGroundColor?.withOpacity(0.5): backGroundColor?.withOpacity(0.95))  :
-            (onTap == null || isLoading==true ? themeData.primaryColor.withOpacity(0.65) : themeData.primaryColor),
+            (onTap == null || isLoading==true ? Theme.of(context).primaryColor.withOpacity(0.65) : Theme.of(context).primaryColor),
           ),
           child: Padding(
               padding:
@@ -91,7 +91,7 @@ class AppButton extends StatelessWidget {
                         text ?? "",
                         // family: 'Inter',
                         weight: FontWeight.w700,
-                        color: textColor ?? (transparent == true? themeData.primaryColor: Colors.white),
+                        color: textColor ?? (transparent == true? Theme.of(context).primaryColor: Colors.white),
                         align: TextAlign.center,
                         size: textSize?? 16.sp,
                       ),

@@ -27,4 +27,6 @@ class ProductDetailViewModel extends BaseViewModel {
     currentIndex = index??0;
     notifyListeners();
   }
+
+
 }

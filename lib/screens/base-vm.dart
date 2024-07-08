@@ -1,11 +1,12 @@
 import 'package:connectivity/connectivity.dart';
-import 'package:cupertino_modal_sheet/cupertino_modal_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../locator.dart';
+import '../data/cache/constants.dart';
 import '../data/cache/view_state.dart';
 import '../data/repository/repository.service.dart';
+import '../data/routes/routes.dart';
 import '../data/services/local/cache.service.dart';
 import '../data/services/local/locale.service.dart';
 import '../data/services/local/storage.service.dart';
@@ -22,6 +23,10 @@ class BaseViewModel extends ChangeNotifier {
 
   final formKey = GlobalKey<FormState>();
   final GlobalKey repaintKey = GlobalKey();
+
+  goToCart(){
+    navigationService.navigateTo(CartViewRoute);
+  }
 
 
   Future<bool> isConnectedToNetwork() async {
@@ -110,34 +115,6 @@ class BaseViewModel extends ChangeNotifier {
     }
   }
 
-  Future popDialog({
-    required BuildContext context,
-    VoidCallback? onTap,
-    VoidCallback? otherOnTap,
-    String? title,
-    String? subTitle,
-    String? cancelButtonText,
-    String? doItButtonText,
-    Widget? prefixIcon1,
-    Widget? child,
-    Widget? prefixIcon2,
-  }) async {
-    return await showCupertinoModalSheet(
-      barrierDismissible: false,
-      context: context,
-      builder: (BuildContext context) => ActionBottomSheet(
-        onTap: onTap,
-        title: title,
-        subTitle: subTitle,
-        cancelButtonText: cancelButtonText,
-        doItButtonText: doItButtonText,
-        prefixIcon1: prefixIcon1,
-        prefixIcon2: prefixIcon2,
-        otherOnTap: otherOnTap,
-        child: child,
-      )
-    );
-  }
 
   void stopLoader() {
     if (isLoading) {

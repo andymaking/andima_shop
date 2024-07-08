@@ -9,7 +9,7 @@ class Styles {
   static ThemeData themeData({bool? isDark}) {
     return ThemeData(
       fontFamily: 'SF Pro Display',
-      primaryColor: isDark == true? primaryDarkColor: primaryColor,
+      primaryColor: primaryColor,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       unselectedWidgetColor: isDark == true? Colors.black87: textFieldBackgroundColor,
       colorScheme: ColorScheme.fromSwatch(

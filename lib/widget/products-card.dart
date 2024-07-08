@@ -14,7 +14,7 @@ class ProductCard extends StatefulWidget {
   });
 
   final String image;
-  final List<num> price;
+  final List<num?> price;
   final bool isLiked;
   final EdgeInsets margin;
   final VoidCallback? onTap;

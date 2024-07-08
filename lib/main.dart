@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
                         debugShowCheckedModeBanner: false,
                         navigatorKey: locator<NavigationService>().navigatorKey,
                         scaffoldMessengerKey: locator<NavigationService>().snackBarKey,
-                        title: "TEMPLATE",
+                        title: "ANDIMA-SHOP",
                         theme: Styles.themeData(isDark: themeProvider.isDark),
                         onGenerateRoute: Routers.generateRoute,
                         supportedLocales: locator<LocaleService>().localization.supportedLocales,

@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart' show launchUrl;
 
 import '../data/services/local/navigation.service.dart';
 import '../locator.dart';
@@ -61,15 +60,6 @@ extension NumExtensions on int {
   num addPercentage(num v) => this + ((v / 100) * this);
 
   num getPercentage(num v) => ((v / 100) * this);
-}
-
-
-void openUrl({String? url}) {
-  launchUrl(Uri.parse("http://$url"));
-}
-
-void openMailApp({String? receiver, String? title, String? body}) {
-  launchUrl(Uri.parse("mailto:$receiver?subject=$title&body=$body"));
 }
 
 String trimPhone(String? phone) {

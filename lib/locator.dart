@@ -8,7 +8,6 @@ import '../data/services/local/storage.service.dart';
 import '../data/services/local/theme.service.dart';
 import '../data/services/web/shop.service.dart';
 import 'screens/base-vm.dart';
-import 'screens/main/cart/cart.vm.dart';
 import 'screens/main/home/detail-view/product.detail.vm.dart';
 import 'screens/main/home/home.vm.dart';
 
@@ -35,7 +34,6 @@ registerViewModel(){
   locator.registerFactory<BaseViewModel>(() => BaseViewModel());
   locator.registerFactory<HomeViewModel>(() => HomeViewModel());
   locator.registerFactory<ProductDetailViewModel>(() => ProductDetailViewModel());
-  locator.registerFactory<CartViewModel>(() => CartViewModel());
   // locator.registerFactory<ForgotPasswordViewModel>(() => ForgotPasswordViewModel());
   // locator.registerFactory<ProfileEditViewModel>(() => ProfileEditViewModel());
   // locator.registerFactory<ProfileHomeViewModel>(() => ProfileHomeViewModel());
