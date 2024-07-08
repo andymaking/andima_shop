@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
+import '../utils/the.data.dart';
 import '/utils/widget_extensions.dart';
 import '../data/cache/palette.dart';
 import 'apptexts.dart';
@@ -14,8 +15,6 @@ class AppTextField extends StatefulWidget {
   final String? hint;
   final String? labelText;
   final bool readonly;
-  final bool borderless;
-  final bool isDark;
   final bool isPassword;
   final Widget? suffixIcon;
   final Widget? errorWidget;
@@ -34,6 +33,7 @@ class AppTextField extends StatefulWidget {
   final AutovalidateMode? autoValidateMode;
   final InputBorder? enabledBorder;
   final int? maxLength;
+  final FontWeight? fontWeight;
   final int? maxHeight;
   final bool? haveText;
   final Iterable<String>? autofillHints;
@@ -48,7 +48,6 @@ class AppTextField extends StatefulWidget {
   const AppTextField(
       {Key? key,
         this.readonly = false,
-        this.borderless = false,
         this.isPassword = false,
         this.hintText,
         this.hint,
@@ -67,7 +66,7 @@ class AppTextField extends StatefulWidget {
         this.labelText,
         this.label,
         this.contentPadding,
-        this.prefix, this.maxHeight = 1, this.hintColor, this.textColor, this.inputFormatters, this.errorWidget, this.enabled, this.fillColor, this.overrideIconColor, this.enabledBorder, this.autoValidateMode, required this.isDark, this.borderRadius, this.bodyTextColor, this.textInputAction})
+        this.prefix, this.maxHeight = 1, this.hintColor, this.textColor, this.inputFormatters, this.errorWidget, this.enabled, this.fillColor, this.overrideIconColor, this.enabledBorder, this.autoValidateMode, this.borderRadius, this.bodyTextColor, this.textInputAction, this.fontWeight})
       : super(key: key);
 
   @override
@@ -142,7 +141,7 @@ class _AppTextFieldState extends State<AppTextField> {
                   enabled: widget.enabled,
                   obscureText: widget.isPassword ? !isVisible : false,
                   textInputAction: widget.textInputAction?? TextInputAction.next,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp, fontFamily: 'Satoshi', color: widget.bodyTextColor),
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp, color: widget.bodyTextColor, fontWeight: widget.fontWeight?? FontWeight.bold),
                   controller: widget.controller,
                   inputFormatters: widget.inputFormatters,
                   decoration: InputDecoration(
@@ -151,7 +150,7 @@ class _AppTextFieldState extends State<AppTextField> {
                     counter: 0.0.sbH,
                     hintText: widget.hint,
                     enabled: widget.enabled??true,
-                    fillColor:widget.enabled == false? Theme.of(context).secondaryHeaderColor.withOpacity(0.13): ( widget.fillColor?? Colors.transparent),
+                    fillColor: Theme.of(context).unselectedWidgetColor,
                     error: widget.errorWidget,
                     prefixIconColor: widget.overrideIconColor ==true? null: const Color(0xFF2A2A2A),
                     suffixIconColor: widget.overrideIconColor ==true? null: const Color(0xFF2A2A2A),
@@ -174,26 +173,27 @@ class _AppTextFieldState extends State<AppTextField> {
                     label: widget.label,
                     labelText: widget.labelText,
                     labelStyle: Theme.of(context).textTheme.bodyMedium,
-                    hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(color: widget.textColor?? (widget.isDark? Colors.white.withOpacity(0.5): const Color(0xFFC5C0BF)),fontSize: 15.sp, fontFamily: 'Satoshi'),
-                    helperStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp, fontFamily: 'Satoshi'),
+                    hintStyle: Theme.of(context).textTheme.bodySmall?.copyWith(color: widget.textColor, fontSize: 15.sp),
+                    helperStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp,),
                     isDense: true,
-                    contentPadding: widget.contentPadding ?? EdgeInsets.symmetric(horizontal: 16.sp, vertical: 14.sp),
-                    focusedBorder: OutlineInputBorder(borderSide:
-                    BorderSide(color: widget.borderless? Colors.transparent:  primaryColor, width: 3.sp),
-                        borderRadius: BorderRadius.circular(widget.borderRadius??8.sp)),
-                    enabledBorder: widget.enabledBorder?? OutlineInputBorder(
-                        borderSide: BorderSide(width: 0.8.sp, color: widget.borderless?Colors.transparent:(widget.isDark? Colors.white.withOpacity(0.9) : const Color(0xFF2A2A2A).withOpacity(0.6))),
-                        borderRadius: BorderRadius.circular(widget.borderRadius??8.sp)),
+                    contentPadding: widget.contentPadding ?? EdgeInsets.symmetric(horizontal: 16.sp, vertical: 16.sp),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide:BorderSide(color: themeData.colorScheme.secondary, width: 1.sp),
+                        borderRadius: BorderRadius.circular(widget.borderRadius??16.sp)
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 0.8.sp, color: Colors.grey.withOpacity(0.3)),
+                        borderRadius: BorderRadius.circular(widget.borderRadius??16.sp)),
                     errorBorder:OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.sp, color: widget.borderless?Colors.transparent: widget.isDark? Theme.of(context).colorScheme.error:  errorColor),
-                        borderRadius: BorderRadius.circular(widget.borderRadius??8.sp)),
-                    errorStyle: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400, color: widget.isDark? Theme.of(context).colorScheme.error:  errorColor),
+                        borderSide: BorderSide(width: 1.sp, color: Colors.transparent),
+                        borderRadius: BorderRadius.circular(widget.borderRadius??16.sp)),
+                    errorStyle: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400, color: themeData.colorScheme.error),
                     focusedErrorBorder:OutlineInputBorder(
-                        borderSide: BorderSide(width: 2, color: widget.borderless?Colors.transparent:  primaryColor,),
-                        borderRadius: BorderRadius.circular(widget.borderRadius??8.sp)),
+                        borderSide: BorderSide(width: 1.sp, color: themeData.colorScheme.error,),
+                        borderRadius: BorderRadius.circular(widget.borderRadius??16.sp)),
                     disabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 0.8.sp, color: Theme.of(context).secondaryHeaderColor.withOpacity(0.4)),
-                        borderRadius: BorderRadius.circular(widget.borderRadius??8.sp)),
+                        borderSide: BorderSide(width: 0.8.sp, color: Colors.transparent),
+                        borderRadius: BorderRadius.circular(widget.borderRadius??16.sp)),
                   ),
                   keyboardType: widget.keyboardType,
                 ),
@@ -263,7 +263,7 @@ class CustomPhoneNumberInput extends StatelessWidget {
         Column(
           children: [
             InternationalPhoneNumberInput(
-              textStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp, fontFamily: 'Satoshi'),
+              textStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
               onInputChanged: (PhoneNumber number) => onInputChanged!(number),
               keyboardType: const TextInputType.numberWithOptions(
                 signed: true,
@@ -326,7 +326,7 @@ class CustomPhoneNumberInput extends StatelessWidget {
                 selectorType: PhoneInputSelectorType.DIALOG,
               ),
               ignoreBlank: true,
-              selectorTextStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp, fontFamily: 'Satoshi'),
+              selectorTextStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
               autoValidateMode: AutovalidateMode.disabled,
               onSaved: (PhoneNumber number) => {onSaved!(number)},
               onSubmit: () => onSubmit!(),
@@ -385,7 +385,7 @@ class NewDropDownSelect extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: DropdownButtonFormField(
             borderRadius: BorderRadius.circular(12),
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp, fontFamily: 'Aileron'),
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
             icon: const Icon(Icons.keyboard_arrow_down),
             value: value,
             items: items
@@ -399,7 +399,7 @@ class NewDropDownSelect extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                       softWrap: false,
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp, fontFamily: 'Aileron'),
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
                     ),
                   ),
                 ],
@@ -531,7 +531,7 @@ class TextArea extends StatelessWidget {
           maxLength: 1000,
           enabled: enabled,
           onTap: onTap,
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp, fontFamily: 'Aileron'),
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
           minLines: minLines,
           maxLines: 5,
           focusNode: focusnode,
@@ -573,3 +573,4 @@ class TextArea extends StatelessWidget {
     );
   }
 }
+

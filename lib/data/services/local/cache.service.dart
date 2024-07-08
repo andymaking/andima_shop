@@ -1,3 +1,5 @@
+import 'package:andima_shop/data/model/get-product-response.dart';
+
 class AppCache {
 
   clearCheckoutData(){
@@ -22,11 +24,8 @@ class AppCache {
   String? emailOtp;
   String? phone;
   String? forgotEmailType;
-  AuthModel authModel = AuthModel();
+  Items product = Items();
 
-  clearAuth(){
-    authModel = AuthModel();
-  }
 
 }
 

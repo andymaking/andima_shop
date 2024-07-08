@@ -9,13 +9,11 @@ import '../data/repository/repository.service.dart';
 import '../data/services/local/cache.service.dart';
 import '../data/services/local/locale.service.dart';
 import '../data/services/local/storage.service.dart';
-import '../data/services/local/user.service.dart';
 import '../widget/action-widget.dart';
 
 class BaseViewModel extends ChangeNotifier {
   ViewState _viewState = ViewState.Loading;
   LocaleService localeService = locator<LocaleService>();
-  UserService userService = locator<UserService>();
   AppCache appCache = locator<AppCache>();
   StorageService storageService = locator<StorageService>();
   Repository repository = locator<Repository>();
@@ -66,10 +64,6 @@ class BaseViewModel extends ChangeNotifier {
     _viewState = newState;
     _viewState == ViewState.Loading ? isLoading = true : isLoading = false;
     notifyListeners();
-  }
-
-  logOuts(BuildContext context) {
-    popDialog(context: context, onTap: userService.logout, title: "Log out");
   }
 
   bool isLoading = false;

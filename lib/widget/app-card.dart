@@ -1,3 +1,4 @@
+import 'package:andima_shop/utils/the.data.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/widget_extensions.dart';
@@ -52,7 +53,7 @@ class AppCard extends StatelessWidget {
       borderRadius: borderRadius??  BorderRadius.circular(radius ?? 16),
       child: Container(
         decoration: decoration?? BoxDecoration(
-          color: color??(backgroundColor!=null ? backgroundColor!.withOpacity(0.9): Colors.transparent),
+          color: color??(backgroundColor!=null ? backgroundColor!.withOpacity(0.9): Theme.of(context).cardColor),
           borderRadius: borderRadius??  BorderRadius.circular(radius ?? 16),
           boxShadow: useShadow != true
               ? null

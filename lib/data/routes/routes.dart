@@ -1,5 +1,6 @@
-const String HomeRoute = '/home_bottom_nav_page';
+const String CartViewRoute = '/CartView_Route';
 const String AuthSelectorRoute = '/auth_selector_view_route';
+const String ProductDetailRoute = '/product_detail_route';
 const String SignUpRoute = '/auth_sign_up_route';
 const String VerifyOTPRoute = '/auth_verify_otp_route';
 const String CreatePinRoute = '/auth_create_pin_route';

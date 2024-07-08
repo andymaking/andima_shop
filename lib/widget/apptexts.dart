@@ -49,6 +49,7 @@ class AppText extends StatelessWidget {
         fontSize: size,
         height: height,
         decoration: decoration,
+        color: color,
         fontFamily: family,
         // fontFamily: family,
         overflow: overflow,
