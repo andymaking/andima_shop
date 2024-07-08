@@ -20,16 +20,16 @@ Just click on the link below
 
 ## GALLERY
 
-![SPLASH SCREEN LIGHT](https://github.com/andymaking/hng_shop_app/blob/main/assets/images/12.png)
-![SPLASH SCREEN_DARK](https://github.com/andymaking/hng_shop_app/blob/main/assets/images/11.png)
-![PRODUCT PAGE - (LOADING) LIGHT](https://github.com/andymaking/hng_shop_app/blob/main/assets/images/21.png)
-![PRODUCT PAGE - (LOADING) DARK](https://github.com/andymaking/hng_shop_app/blob/main/assets/images/22.png)
-![PRODUCT PAGE - WITH PRODUCT LIGHT](https://github.com/andymaking/hng_shop_app/blob/main/assets/images/31.png)
-![PRODUCT PAGE - WITH PRODUCT DARK](https://github.com/andymaking/hng_shop_app/blob/main/assets/images/32.png)
-![PRODUCT PAGE - WITH PRODUCT LIGHT (FILTERED)](https://github.com/andymaking/hng_shop_app/blob/main/assets/images/33.png)
-![PRODUCT PAGE - WITH PRODUCT DARK (FILTERED)](https://github.com/andymaking/hng_shop_app/blob/main/assets/images/34.png)
-![PRODUCT DETAILS - LIGHT](https://github.com/andymaking/hng_shop_app/blob/main/assets/images/41.png)
-![PRODUCT DETAILS - DARK](https://github.com/andymaking/hng_shop_app/blob/main/assets/images/42.png)
+![SPLASH SCREEN LIGHT](https://github.com/andymaking/andima_shop/blob/main/assets/images/12.png)
+![SPLASH SCREEN_DARK](https://github.com/andymaking/andima_shop/blob/main/assets/images/11.png)
+![PRODUCT PAGE - (LOADING) LIGHT](https://github.com/andymaking/andima_shop/blob/main/assets/images/21.png)
+![PRODUCT PAGE - (LOADING) DARK](https://github.com/andymaking/andima_shop/blob/main/assets/images/22.png)
+![PRODUCT PAGE - WITH PRODUCT LIGHT](https://github.com/andymaking/andima_shop/blob/main/assets/images/31.png)
+![PRODUCT PAGE - WITH PRODUCT DARK](https://github.com/andymaking/andima_shop/blob/main/assets/images/32.png)
+![PRODUCT PAGE - WITH PRODUCT LIGHT (FILTERED)](https://github.com/andymaking/andima_shop/blob/main/assets/images/33.png)
+![PRODUCT PAGE - WITH PRODUCT DARK (FILTERED)](https://github.com/andymaking/andima_shop/blob/main/assets/images/34.png)
+![PRODUCT DETAILS - LIGHT](https://github.com/andymaking/andima_shop/blob/main/assets/images/41.png)
+![PRODUCT DETAILS - DARK](https://github.com/andymaking/andima_shop/blob/main/assets/images/42.png)
 
 ## DOWNLOAD THE APK
 Just click on the link below to download the App
