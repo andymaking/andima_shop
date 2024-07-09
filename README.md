@@ -13,7 +13,7 @@ Enjoy the app
 
 ## TO PREVIEW THE APP ON YOUR BROWSER
 Just click on the link below
-[APPETIZE](https://appetize.io/app/android/io.king.andima_shop?device=pixel7&osVersion=13.0)
+[APPETIZE](https://appetize.io/app/b_eonxsihqrv3ovz35as534x7i7q)
 
 ## TO VIEW REPOSITORY
 [GITHUB](https://github.com/andymaking/andima_shop)
